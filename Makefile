@@ -101,7 +101,7 @@ $(OBJDIR)%.o: %.c
 	$(CC) $(COMMON) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR)%.o: %.cu 
-	$(NVCC) $(ARCH) $(COMMON) --compiler-options "$(CFLAGS)" -c $< -o $@
+	$(NVCC) $(ARCH) $(COMMON) -Xcompiler -fPIC -std=c++11 -c $< -o $@
 
 $(DIRS): 
 	mkdir -p $@
